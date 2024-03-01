@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="msg">这是默认显示内容</h1>
+    <button onclick="sendMsgToCSharp1()">发送消息给主程序界面1</button>
+    <button onclick="sendMsgToCSharp2()">发送消息给主程序界面2</button>
+</body>
+<script>
+    // 该函数供C#调用
+    function receiveMsgFromCSharp(msg) {
+        console.log(msg);
+        document.getElementById("msg").innerText = msg;
+    }
+    // js判断字符串是否可转为json数据,如果可以则返回true
+    function isJsonString(str) {
+        try {
+            if (typeof JSON.parse(str) == "object") {
+                return true;
+            }
+        } catch (e) {
+        }
+        return false;
+    }
+    // 接收来自C#的postWebMessageAsString的消息
+    window.chrome.webview.addEventListener('message', function (event) {
+        const json = event.data;
+        console.log(json);
+        const obj = JSON.parse(json);
+        // alert(123);
+        console.log(obj);
+        
+        //document.getElementById("msg").innerText = msg;
+    });
+    function sendMsgToCSharp1() {
+        //alert("ssssssssssssssssssss")
+        window.chrome.webview.postMessage("这是web页面修改的C#页面内容");
+    }
+    async function sendMsgToCSharp2() {
+        //alert("ssssssssssssssssssss")
+        var hostObject = window.chrome.webview.hostObjects.customWebView2HostObject;
+        var result = await hostObject.TestCalcAddByCsharpMethod(12, 14, "加法计算");
+        //window.chrome.webview.postMessage("这是web页面修改的C#页面内容");
+    }
+</script>
+</html>
