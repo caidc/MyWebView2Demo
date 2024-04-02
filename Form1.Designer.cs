@@ -40,12 +40,14 @@
             // webView21
             // 
             this.webView21.AllowExternalDrop = true;
+            this.webView21.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.webView21.CreationProperties = null;
             this.webView21.DefaultBackgroundColor = System.Drawing.Color.White;
-            this.webView21.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.webView21.Location = new System.Drawing.Point(0, 138);
+            this.webView21.Location = new System.Drawing.Point(0, 123);
             this.webView21.Name = "webView21";
-            this.webView21.Size = new System.Drawing.Size(800, 312);
+            this.webView21.Size = new System.Drawing.Size(1158, 541);
             this.webView21.Source = new System.Uri("https://www.microsoft.com", System.UriKind.Absolute);
             this.webView21.TabIndex = 0;
             this.webView21.ZoomFactor = 1D;
@@ -78,7 +80,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(415, 92);
+            this.button2.Location = new System.Drawing.Point(415, 74);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(254, 25);
             this.button2.TabIndex = 4;
@@ -100,7 +102,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1158, 664);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox1);

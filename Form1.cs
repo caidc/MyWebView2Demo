@@ -22,7 +22,7 @@ namespace MyWebView2Demo
         public Form1()
         {
             InitializeComponent();
-            webView21.Source = new Uri("UI.html");
+            webView21.Source = new Uri("D:\\12-VS22Codespace\\C#Webview2\\MyWebView2Demo\\html\\UI.html");
             InitializeAsync();
 
         }
@@ -60,8 +60,10 @@ namespace MyWebView2Demo
             };
             //这里才用到Newtonsoft.Json;
             string jsonString = JsonConvert.SerializeObject(weatherForecast);
-            webView21.CoreWebView2.ExecuteScriptAsync($"alert('收到C#要求执行的js函数，弹窗显示js_value：{jsonString}')");
+            //webView21.CoreWebView2.ExecuteScriptAsync($"alert('收到C#要求执行的js函数，弹窗显示js_value：{jsonString}')");
             webView21.CoreWebView2.ExecuteScriptAsync($"receiveMsgFromCSharp('{jsonString}')");
+            webView21.CoreWebView2.ExecuteScriptAsync($"receiveMsgFromCSharp2('这是另外一个地方的函数')");
+            //webView21.CoreWebView2.ExecuteScriptAsync($"measurePoint()");
         }
         ////多个值用json序列化传递，前端用js反序列化解析获取
         public class WeatherForecast
